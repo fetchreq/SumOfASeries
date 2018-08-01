@@ -19,7 +19,7 @@ public class SumOfASeries {
         double thisNum;
         
         for(double k = 1; k<1001; k++){
-            System.out.println("First "+sum);
+            //System.out.println("First "+sum);
             thisNum = 1/Math.pow(k, 2);
             sum += thisNum;
             
@@ -33,26 +33,20 @@ public class SumOfASeries {
         // TODO code application logic here
     }
     static double sumSeriesHelper(double k, double sum){
-        double intialSum = 0;
-        
-        return sumSeries(k,intialSum);
+
+        return sumSeries(k,sum);
         
     }
     static double sumSeries(double k, double sum){
-        double currentValue = k;
-        double currentSum = sum;
-                
-        if(currentValue < 1000){
-            System.out.println(currentSum);
-            currentSum += (1/Math.pow(currentValue, 2));
-            sumSeries(currentValue+1, currentSum);  
+        if (sum != 0 || sum == 0){
+            if(k <1000){
+                System.out.println( sum);
+                sum = sum+ (1/Math.pow(k,2));
+                return sumSeries(k+1, sum);
+            }
+
         }
-        if(currentValue > 1000)
-        {
-            return currentSum;
-        }
-        return currentSum;
-       
+        return sum; 
     }
     
 }
